@@ -62,11 +62,38 @@ function displaytable(pets){
     $('#petTable').append(text);
     //display the per on the HTML
 
+    displayInformation(ObjSalon);
 }
 
 
+function  displayInformation(ArrayObj){
+    //Create vars
+    var pets =  ArrayObj.pets;
+    var text="";
+    var totalSection = document.getElementById("totalSection");
 
+    var TotalPrice = 0;
+    var TotalPriceTax = 0;
 
+    for(var x=0;x<pets.length;x++){
+            TotalPrice = TotalPrice + Number(pets[x].price);
+    }
+
+    TotalPriceTax = TotalPrice * .16;
+    Total = TotalPriceTax+TotalPrice;
+
+    var NumberPets = DisplayNumberPets(pets);
+    
+    var Max = GetMax(pets);
+    var Min = GetMin(pets);
+
+    text = `<hr>Total Price:${TotalPrice} <br>Tax: ${TotalPriceTax} <br>Total: ${Total} <br>Older: ${Max} <br> Youngest: ${Min} <br> ${NumberPets}`;
+
+    totalSection.innerHTML = text;
+ 
+}
+
+//Muestra como componente
 function  display(ArrayObj){
     //Create vars
     var pets =  ArrayObj.pets;

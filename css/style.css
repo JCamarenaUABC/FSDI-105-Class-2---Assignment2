@@ -180,3 +180,13 @@ padding: 1rem;
     background-color: var(--Naranja);
     /*border-left: 5px solid var(--Naranja);*/
 }
+
+hr{
+    border-bottom: 4px solid var(--Naranja);
+}
+
+#SearchSection{
+    display: grid;
+    grid-template-columns: 95% auto;
+    grid-template-rows: minmax(auto, auto);   
+}
